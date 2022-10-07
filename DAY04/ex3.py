@@ -1,0 +1,10 @@
+list=[11,23,21,55,62,41,100,1500]
+print(list[0])
+print(list[1])
+print(list[2])
+print(list[3])
+print(list[4])
+print(list[5])
+print(list[6])
+print(list[7])
+print(list[8])
