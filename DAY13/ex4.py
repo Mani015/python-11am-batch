@@ -1,0 +1,5 @@
+num1=float(input("Etner firstnumber="))
+num2=float(input('Enter second name='))
+print(type(num2))
+print(type(num1))
+print(num1+num2)
