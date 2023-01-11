@@ -1,0 +1,168 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 276
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> connect ant
+Connection id:    277
+Current database: ant
+
+mysql> select * from employee;
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari Krishna   |   24 | AP    | India    |
+|  104 | Ganesh Verma   |   28 | AP    | India    |
+|  105 | Prateek Verma  |   26 | AP    | India    |
+|  106 | Pavan Naidu    |   24 | TG    | India    |
+|  107 | Jeevan Reddy   |   24 | AP    | India    |
+|  108 | Sharath Reddy  |   24 | TG    | India    |
+|  109 | Sachin Rao     |   24 | AP    | India    |
+|  110 | Praveen Rao    |   24 | TG    | India    |
++------+----------------+------+-------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select * from employee where ename regexp 'sa';
++------+------------+------+-------+----------+
+| eno  | ename      | age  | ecity | ecountry |
++------+------------+------+-------+----------+
+|  101 | Sai Kiran  |   28 | AP    | India    |
+|  109 | Sachin Rao |   24 | AP    | India    |
++------+------------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where ename regexp 'krishna';
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari Krishna   |   24 | AP    | India    |
++------+----------------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where ename regexp 'reddy';
++------+---------------+------+-------+----------+
+| eno  | ename         | age  | ecity | ecountry |
++------+---------------+------+-------+----------+
+|  107 | Jeevan Reddy  |   24 | AP    | India    |
+|  108 | Sharath Reddy |   24 | TG    | India    |
++------+---------------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where ename regexp '^sa';
++------+------------+------+-------+----------+
+| eno  | ename      | age  | ecity | ecountry |
++------+------------+------+-------+----------+
+|  101 | Sai Kiran  |   28 | AP    | India    |
+|  109 | Sachin Rao |   24 | AP    | India    |
++------+------------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where ename regexp '^va';
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  102 | Vamshi Krishna |   26 | AP    | India    |
++------+----------------+------+-------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where ename regexp '^sai';
++------+-----------+------+-------+----------+
+| eno  | ename     | age  | ecity | ecountry |
++------+-----------+------+-------+----------+
+|  101 | Sai Kiran |   28 | AP    | India    |
++------+-----------+------+-------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where ename regexp 'dy$';
++------+---------------+------+-------+----------+
+| eno  | ename         | age  | ecity | ecountry |
++------+---------------+------+-------+----------+
+|  107 | Jeevan Reddy  |   24 | AP    | India    |
+|  108 | Sharath Reddy |   24 | TG    | India    |
++------+---------------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where ename regexp 'krishna|reddy|sai';
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari Krishna   |   24 | AP    | India    |
+|  107 | Jeevan Reddy   |   24 | AP    | India    |
+|  108 | Sharath Reddy  |   24 | TG    | India    |
++------+----------------+------+-------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee where ename regexp '[is]';
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari Krishna   |   24 | AP    | India    |
+|  104 | Ganesh Verma   |   28 | AP    | India    |
+|  106 | Pavan Naidu    |   24 | TG    | India    |
+|  108 | Sharath Reddy  |   24 | TG    | India    |
+|  109 | Sachin Rao     |   24 | AP    | India    |
++------+----------------+------+-------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employee where ename regexp '[and]';
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari Krishna   |   24 | AP    | India    |
+|  104 | Ganesh Verma   |   28 | AP    | India    |
+|  105 | Prateek Verma  |   26 | AP    | India    |
+|  106 | Pavan Naidu    |   24 | TG    | India    |
+|  107 | Jeevan Reddy   |   24 | AP    | India    |
+|  108 | Sharath Reddy  |   24 | TG    | India    |
+|  109 | Sachin Rao     |   24 | AP    | India    |
+|  110 | Praveen Rao    |   24 | TG    | India    |
++------+----------------+------+-------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select * from employee where ename regexp '[is]r';
++------+-----------+------+-------+----------+
+| eno  | ename     | age  | ecity | ecountry |
++------+-----------+------+-------+----------+
+|  101 | Sai Kiran |   28 | AP    | India    |
++------+-----------+------+-------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where ename regexp '^[is]';
++------+---------------+------+-------+----------+
+| eno  | ename         | age  | ecity | ecountry |
++------+---------------+------+-------+----------+
+|  101 | Sai Kiran     |   28 | AP    | India    |
+|  108 | Sharath Reddy |   24 | TG    | India    |
+|  109 | Sachin Rao    |   24 | AP    | India    |
++------+---------------+------+-------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee where ename regexp '[is]h';
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari Krishna   |   24 | AP    | India    |
+|  104 | Ganesh Verma   |   28 | AP    | India    |
+|  108 | Sharath Reddy  |   24 | TG    | India    |
++------+----------------+------+-------+----------+
+4 rows in set (0.00 sec)
+
+mysql>

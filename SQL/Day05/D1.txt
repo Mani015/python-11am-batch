@@ -1,0 +1,48 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 351
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> connect ant
+Connection id:    352
+Current database: ant
+
+mysql> create table emp(eid int,ename varchar(40),lname varchar(40),address varchar(255),salary double);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc emp;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| eid     | int          | YES  |     | NULL    |       |
+| ename   | varchar(40)  | YES  |     | NULL    |       |
+| lname   | varchar(40)  | YES  |     | NULL    |       |
+| address | varchar(255) | YES  |     | NULL    |       |
+| salary  | double       | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values(101,'Sai','Kiran','Hyd', 2000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values(102 ,null,'Kiran','Hyd', 2000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++------+-------+-------+---------+--------+
+| eid  | ename | lname | address | salary |
++------+-------+-------+---------+--------+
+|  101 | Sai   | Kiran | Hyd     |   2000 |
+|  102 | NULL  | Kiran | Hyd     |   2000 |
++------+-------+-------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql>

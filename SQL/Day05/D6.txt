@@ -1,0 +1,36 @@
+create table Customer (
+	id integer not null auto_increment,
+        accountDate datetime(6) not null,
+        accountNo bigint not null,
+        address varchar(25) not null,
+        branch varchar(255) not null,
+        firstName varchar(255) not null,
+        ifscCode varchar(255) not null,
+        lastName varchar(255) not null,
+        pincode bigint not null,
+        primary key (id)
+    );
+
+
+mysql> desc customer;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| accountDate | datetime(6)  | NO   |     | NULL    |                |
+| accountNo   | bigint       | NO   |     | NULL    |                |
+| address     | varchar(25)  | NO   |     | NULL    |                |
+| branch      | varchar(255) | NO   |     | NULL    |                |
+| firstName   | varchar(255) | NO   |     | NULL    |                |
+| ifscCode    | varchar(255) | NO   |     | NULL    |                |
+| lastName    | varchar(255) | NO   |     | NULL    |                |
+| pincode     | bigint       | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+
+
+insert 
+    into
+        Customer
+        (accountDate, accountNo, address, branch, firstName, ifscCode, lastName, pincode) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)

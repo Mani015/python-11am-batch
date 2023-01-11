@@ -1,0 +1,69 @@
+mysql> connect `bat`;
+Connection id:    176
+Current database: bat
+
+mysql> insert into emp(eid, ename, lname, address, salary) values(101,'Sai','Kiran','Hyd', 2000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++------+---------+---------+---------+--------+
+| eid  | ename   | lname   | address | salary |
++------+---------+---------+---------+--------+
+|  101 | Sai     | Kiran   | Hyd     |   2000 |
+|  102 | Hari    | Krishna | Hyd     |   2200 |
+|  103 | Vamshi  | Reddy   | Bng     |   2400 |
+|  104 | Sachin  | Rao     | Bng     |   2600 |
+|  105 | Sandeep | Naidu   | Bng     |   2800 |
+|  106 | Sai     | Kumar   | Bng     |   2800 |
+|  107 | Sandeep | Reddy   | Bng     |   2800 |
+|  108 | Sachin  | Rao     | Bng     |   3000 |
+|  109 | Sravan  | Kumar   | Chennai |   3200 |
+|  110 | Murali  | Krishna | Chennai |   3400 |
+|  111 | Raj     | Kumar   | Hyd     |   3600 |
+|  112 | Sandeep | Kishan  | Bng     |   3800 |
+|  113 | Pramod  | Rao     | Hyd     |   4000 |
+|  114 | Jeevan  | Reddy   | Bng     |   4200 |
++------+---------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp where address = 'Hyd' and ename = 'Sai';
++------+-------+-------+---------+--------+
+| eid  | ename | lname | address | salary |
++------+-------+-------+---------+--------+
+|  101 | Sai   | Kiran | Hyd     |   2000 |
++------+-------+-------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where address = 'Bng' and ename = 'Sai';
++------+-------+-------+---------+--------+
+| eid  | ename | lname | address | salary |
++------+-------+-------+---------+--------+
+|  106 | Sai   | Kumar | Bng     |   2800 |
++------+-------+-------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where address = 'Chennai' or address = 'Kerala';
++------+--------+---------+---------+--------+
+| eid  | ename  | lname   | address | salary |
++------+--------+---------+---------+--------+
+|  109 | Sravan | Kumar   | Chennai |   3200 |
+|  110 | Murali | Krishna | Chennai |   3400 |
++------+--------+---------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp where not address = 'Hyd';
++------+---------+---------+---------+--------+
+| eid  | ename   | lname   | address | salary |
++------+---------+---------+---------+--------+
+|  103 | Vamshi  | Reddy   | Bng     |   2400 |
+|  104 | Sachin  | Rao     | Bng     |   2600 |
+|  105 | Sandeep | Naidu   | Bng     |   2800 |
+|  106 | Sai     | Kumar   | Bng     |   2800 |
+|  107 | Sandeep | Reddy   | Bng     |   2800 |
+|  108 | Sachin  | Rao     | Bng     |   3000 |
+|  109 | Sravan  | Kumar   | Chennai |   3200 |
+|  110 | Murali  | Krishna | Chennai |   3400 |
+|  112 | Sandeep | Kishan  | Bng     |   3800 |
+|  114 | Jeevan  | Reddy   | Bng     |   4200 |
++------+---------+---------+---------+--------+
+10 rows in set (0.00 sec)

@@ -1,0 +1,21 @@
+mysql> create table employee(eno int, ename varchar(40), age int check (age>20), ecity varchar(40), ecountry varchar(40));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| eno      | int         | YES  |     | NULL    |       |
+| ename    | varchar(40) | YES  |     | NULL    |       |
+| age      | int         | YES  |     | NULL    |       |
+| ecity    | varchar(40) | YES  |     | NULL    |       |
+| ecountry | varchar(40) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert into employee(eno, ename, age, ecity, ecountry) values(101, 'Sai Kiran', 28, 'AP', 'India');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employee(eno, ename, age, ecity, ecountry) values(102, 'Sai Raj', 15, 'AP', 'India');
+ERROR 3819 (HY000): Check constraint 'employee_chk_1' is violated.
+mysql>

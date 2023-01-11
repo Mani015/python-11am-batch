@@ -1,0 +1,265 @@
+create table employee(eno int, ename varchar(40), age int, ecity varchar(40), ecountry varchar(40));
+insert into employee(eno, ename, age, ecity, ecountry) values(101, 'Sai Kiran', 28, 'AP', 'India');
+insert into employee(eno, ename, age, ecity, ecountry) values(102, 'Vamshi Krishna', 26, 'AP', 'India');
+insert into employee(eno, ename, age, ecity, ecountry) values(103, 'Hari', 24, 'AP', 'India');
+insert into employee(eno, ename, age, ecity, ecountry) values(104, 'Ganesh', 28, 'AP', 'India');
+insert into employee(eno, ename, age, ecity, ecountry) values(105, 'Prateek', 26, 'AP', 'India');
+insert into employee(eno, ename, age, ecity, ecountry) values(106, 'Pavan', 24, 'AP', 'India');
+
+mysql> connect `ant`;
+Connection id:    216
+Current database: ant
+
+mysql> select * from employee;
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari           |   24 | AP    | India    |
+|  104 | Ganesh         |   28 | AP    | India    |
+|  105 | Prateek        |   26 | AP    | India    |
+|  106 | Pavan          |   24 | AP    | India    |
++------+----------------+------+-------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employee limit 4;
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari           |   24 | AP    | India    |
+|  104 | Ganesh         |   28 | AP    | India    |
++------+----------------+------+-------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee limit 0, 4;
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari           |   24 | AP    | India    |
+|  104 | Ganesh         |   28 | AP    | India    |
++------+----------------+------+-------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select ename, age from employee limit 0, 4;
++----------------+------+
+| ename          | age  |
++----------------+------+
+| Sai Kiran      |   28 |
+| Vamshi Krishna |   26 |
+| Hari           |   24 |
+| Ganesh         |   28 |
++----------------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee where age = '26' limit 1;
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  102 | Vamshi Krishna |   26 | AP    | India    |
++------+----------------+------+-------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where age = '26' limit 2;
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  105 | Prateek        |   26 | AP    | India    |
++------+----------------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> select min(age) as lessage from employee;
++---------+
+| lessage |
++---------+
+|      24 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select max(age) as lessage from employee;
++---------+
+| lessage |
++---------+
+|      28 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select max(age) as higherage from employee;
++-----------+
+| higherage |
++-----------+
+|        28 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select ename as employeename, min(age) as lessage from employee;
++--------------+---------+
+| employeename | lessage |
++--------------+---------+
+| Sai Kiran    |      24 |
++--------------+---------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+mysql> select * from employee;
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari           |   24 | AP    | India    |
+|  104 | Ganesh         |   28 | AP    | India    |
+|  105 | Prateek        |   26 | AP    | India    |
+|  106 | Pavan          |   24 | AP    | India    |
++------+----------------+------+-------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employee order by desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc' at line 1
+mysql> select * from employee order by ename desc;
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  105 | Prateek        |   26 | AP    | India    |
+|  106 | Pavan          |   24 | AP    | India    |
+|  103 | Hari           |   24 | AP    | India    |
+|  104 | Ganesh         |   28 | AP    | India    |
++------+----------------+------+-------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employee order by ename;
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  104 | Ganesh         |   28 | AP    | India    |
+|  103 | Hari           |   24 | AP    | India    |
+|  106 | Pavan          |   24 | AP    | India    |
+|  105 | Prateek        |   26 | AP    | India    |
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  102 | Vamshi Krishna |   26 | AP    | India    |
++------+----------------+------+-------+----------+
+6 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+mysql> select * from employee;
+ERROR 1146 (42S02): Table 'ant.employee' doesn't exist
+mysql> select * from employee;
+Empty set (0.00 sec)
+
+mysql> desc employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| eno      | int         | YES  |     | NULL    |       |
+| ename    | varchar(40) | YES  |     | NULL    |       |
+| age      | int         | YES  |     | NULL    |       |
+| ecity    | varchar(40) | YES  |     | NULL    |       |
+| ecountry | varchar(40) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employee(eno, ename, age, ecity, ecountry) values(101, 'Sai Kiran', 28, 'AP', 'India');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employee;
++------+-----------+------+-------+----------+
+| eno  | ename     | age  | ecity | ecountry |
++------+-----------+------+-------+----------+
+|  101 | Sai Kiran |   28 | AP    | India    |
++------+-----------+------+-------+----------+
+1 row in set (0.00 sec)
+
+mysql> insert into employee(eno, ename, age, ecity, ecountry) values(102, 'Sai Kiran', 28, 'AP');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into employee(eno, ename, age, ecity, ecountry) values(102, 'Sai Kiran', 28, 'AP', '');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employee;
++------+-----------+------+-------+----------+
+| eno  | ename     | age  | ecity | ecountry |
++------+-----------+------+-------+----------+
+|  101 | Sai Kiran |   28 | AP    | India    |
+|  102 | Sai Kiran |   28 | AP    |          |
++------+-----------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee;
+
+
+
+
+
+
+
+
+mysql> desc employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| eno      | int         | YES  |     | NULL    |       |
+| ename    | varchar(40) | YES  |     | NULL    |       |
+| age      | int         | YES  |     | NULL    |       |
+| ecity    | varchar(40) | YES  |     | NULL    |       |
+| ecountry | varchar(40) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> desc employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| eno      | int         | NO   |     | NULL    |       |
+| ename    | varchar(40) | YES  |     | NULL    |       |
+| age      | int         | YES  |     | NULL    |       |
+| ecity    | varchar(40) | YES  |     | NULL    |       |
+| ecountry | varchar(40) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employee(eno, ename, age, ecity, ecountry) values(102, 'Vamshi Krishna', 26, 'AP', '');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employee(eno, ename, age, ecity, ecountry) values(102, 'Vamshi Krishna', 26, 'AP');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into employee(eno, ename, age, ecity, ecountry) values(102, 'Vamshi Krishna', 26, 'AP',);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> insert into employee(eno, ename, age, ecity, ecountry) values(, 'Sai Kiran', 28, 'AP', 'India');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', 'Sai Kiran', 28, 'AP', 'India')' at line 1
+mysql> insert into employee(eno, ename, age, ecity, ecountry) values('Sai Kiran', 28, 'AP', 'India');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql>
+
+

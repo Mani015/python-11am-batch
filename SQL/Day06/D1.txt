@@ -1,0 +1,72 @@
+create table employee(eno int not null auto_increment, ename varchar(40), age int, ecity varchar(40), ecountry varchar(40), primary key(eno));
+
+
+insert into employee(ename, age, ecity, ecountry) values('Sai Kiran', 28, 'AP', 'India');
+
+
+insert into employee(ename, age, ecity, ecountry) values('Vamshi Krishna', 26, 'AP', 'India');
+
+insert into employee(ename, age, ecity, ecountry) values('Hari', 24, 'AP', 'India');
+
+insert into employee(ename, age, ecity, ecountry) values('Ganesh', 28, 'AP', 'India');
+
+insert into employee(ename, age, ecity, ecountry) values('Prateek', 26, 'AP', 'India');
+
+insert into employee(ename, age, ecity, ecountry) values('Pavan', 24, 'AP', 'India');
+
+
+
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 28
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input s
+
+mysql> connect cat
+Connection id:    29
+Current database: cat
+
+mysql> create table employee(eno int not null auto_increment, ename v
+ age int, ecity varchar(40), ecountry varchar(40), primary key(eno));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc employee;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| eno      | int         | NO   | PRI | NULL    | auto_increment |
+| ename    | varchar(40) | YES  |     | NULL    |                |
+| age      | int         | YES  |     | NULL    |                |
+| ecity    | varchar(40) | YES  |     | NULL    |                |
+| ecountry | varchar(40) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)
+
+mysql> select * from employee;
++-----+----------------+------+-------+----------+
+| eno | ename          | age  | ecity | ecountry |
++-----+----------------+------+-------+----------+
+|   1 | Sai Kiran      |   28 | AP    | India    |
+|   2 | Vamshi Krishna |   26 | AP    | India    |
+|   3 | Hari           |   24 | AP    | India    |
+|   4 | Ganesh         |   28 | AP    | India    |
+|   5 | Prateek        |   26 | AP    | India    |
+|   6 | Pavan          |   24 | AP    | India    |
+|   7 | Sai Kiran      |   28 | AP    | India    |
+|   8 | Vamshi Krishna |   26 | AP    | India    |
+|   9 | Hari           |   24 | AP    | India    |
+|  10 | Ganesh         |   28 | AP    | India    |
+|  11 | Prateek        |   26 | AP    | India    |
+|  12 | Pavan          |   24 | AP    | India    |
++-----+----------------+------+-------+----------+
+12 rows in set (0.00 sec)
+
+mysql>
+

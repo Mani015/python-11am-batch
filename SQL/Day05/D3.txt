@@ -1,0 +1,21 @@
+mysql> create table emp(eid int,ename varchar(40) unique ,lname varchar(40),address varchar(255),salary double);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc emp;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| eid     | int          | YES  |     | NULL    |       |
+| ename   | varchar(40)  | YES  | UNI | NULL    |       |
+| lname   | varchar(40)  | YES  |     | NULL    |       |
+| address | varchar(255) | YES  |     | NULL    |       |
+| salary  | double       | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values(101,'Sai','Kiran','Hyd', 2000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values(102 ,'Sai','Kiran','Hyd', 2000);
+ERROR 1062 (23000): Duplicate entry 'Sai' for key 'emp.ename'
+mysql>

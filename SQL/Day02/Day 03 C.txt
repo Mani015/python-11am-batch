@@ -1,0 +1,40 @@
+create table employee(eno int, ecity varchar(40), ecountry varchar(40));
+insert into employee(eno, ecity, ecountry) values(101, 'AP', 'India');
+insert into employee(eno, ecity, ecountry) values(102, 'AP', 'India');
+insert into employee(eno, ecity, ecountry) values(103, 'Hyd', 'India');
+insert into employee(eno, ecity, ecountry) values(104, 'Hyd', 'India');
+insert into employee(eno, ecity, ecountry) values(105, 'Bng', 'India');
+insert into employee(eno, ecity, ecountry) values(106, 'Bng', 'India');
+insert into employee(eno, ecity, ecountry) values(107, 'Chennai', 'India');
+insert into employee(eno, ecity, ecountry) values(108, 'Chennai', 'India');
+
+mysql> select * from employee;
++------+---------+----------+
+| eno  | ecity   | ecountry |
++------+---------+----------+
+|  101 | AP      | India    |
+|  102 | AP      | India    |
+|  103 | Hyd     | India    |
+|  104 | Hyd     | India    |
+|  105 | Bng     | India    |
+|  106 | Bng     | India    |
+|  107 | Chennai | India    |
+|  108 | Chennai | India    |
++------+---------+----------+
+8 rows in set (0.00 sec)
+
+mysql>
+
+mysql> select * from employee where ecountry = 'India' and (ecity = 'AP' or  ecity = 'Hyd');
++------+-------+----------+
+| eno  | ecity | ecountry |
++------+-------+----------+
+|  101 | AP    | India    |
+|  102 | AP    | India    |
+|  103 | Hyd   | India    |
+|  104 | Hyd   | India    |
++------+-------+----------+
+4 rows in set (0.00 sec)
+
+
+

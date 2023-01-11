@@ -1,0 +1,96 @@
+create table employee(eno int, ename varchar(40), age int, ecity varchar(40), ecountry varchar(40));
+insert into employee(eno, ename, age, ecity, ecountry) values(101, 'Sai Kiran', 28, 'AP', 'India');
+insert into employee(eno, ename, age, ecity, ecountry) values(102, 'Vamshi Krishna', 26, 'AP', 'India');
+insert into employee(eno, ename, age, ecity, ecountry) values(103, 'Hari', 24, 'AP', 'India');
+insert into employee(eno, ename, age, ecity, ecountry) values(104, 'Ganesh', 28, 'AP', 'India');
+insert into employee(eno, ename, age, ecity, ecountry) values(105, 'Prateek', 26, 'AP', 'India');
+insert into employee(eno, ename, age, ecity, ecountry) values(106, 'Pavan', 24, 'AP', 'India');
+
+mysql> connect `ant`;
+Connection id:    177
+Current database: ant
+
+mysql> select * from employee;
++------+----------------+------+-------+----------+
+| eno  | ename          | age  | ecity | ecountry |
++------+----------------+------+-------+----------+
+|  101 | Sai Kiran      |   28 | AP    | India    |
+|  102 | Vamshi Krishna |   26 | AP    | India    |
+|  103 | Hari           |   24 | AP    | India    |
+|  104 | Ganesh         |   28 | AP    | India    |
+|  105 | Prateek        |   26 | AP    | India    |
+|  106 | Pavan          |   24 | AP    | India    |
++------+----------------+------+-------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employee where age in (28, 24);
++------+-----------+------+-------+----------+
+| eno  | ename     | age  | ecity | ecountry |
++------+-----------+------+-------+----------+
+|  101 | Sai Kiran |   28 | AP    | India    |
+|  103 | Hari      |   24 | AP    | India    |
+|  104 | Ganesh    |   28 | AP    | India    |
+|  106 | Pavan     |   24 | AP    | India    |
++------+-----------+------+-------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee where age not in (28, 26);
++------+-------+------+-------+----------+
+| eno  | ename | age  | ecity | ecountry |
++------+-------+------+-------+----------+
+|  103 | Hari  |   24 | AP    | India    |
+|  106 | Pavan |   24 | AP    | India    |
++------+-------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select ecity as employeecity from employee;
++--------------+
+| employeecity |
++--------------+
+| AP           |
+| AP           |
+| AP           |
+| AP           |
+| AP           |
+| AP           |
++--------------+
+6 rows in set (0.00 sec)
+
+mysql>
+
+mysql> select ecity as employeecity, ecountry as employeecountry from employee;
++--------------+-----------------+
+| employeecity | employeecountry |
++--------------+-----------------+
+| AP           | India           |
+| AP           | India           |
+| AP           | India           |
+| AP           | India           |
+| AP           | India           |
+| AP           | India           |
++--------------+-----------------+
+6 rows in set (0.00 sec)
+
+create table office(oaddress varchar(40), ocontact varchar(40));
+insert into office(oaddress, ocontact) values ('Hyd', 987654321);
+insert into office(oaddress, ocontact) values ('Bng', 987654321);
+
+mysql> select e.eno, o.oaddress, o.ocontact from employee as e, office as o;
++------+----------+-----------+
+| eno  | oaddress | ocontact  |
++------+----------+-----------+
+|  101 | Bng      | 987654321 |
+|  101 | Hyd      | 987654321 |
+|  102 | Bng      | 987654321 |
+|  102 | Hyd      | 987654321 |
+|  103 | Bng      | 987654321 |
+|  103 | Hyd      | 987654321 |
+|  104 | Bng      | 987654321 |
+|  104 | Hyd      | 987654321 |
+|  105 | Bng      | 987654321 |
+|  105 | Hyd      | 987654321 |
+|  106 | Bng      | 987654321 |
+|  106 | Hyd      | 987654321 |
++------+----------+-----------+
+12 rows in set (0.00 sec)
+

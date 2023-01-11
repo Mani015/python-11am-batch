@@ -1,0 +1,16 @@
+create table emp(eid int,ename varchar(40),lname varchar(40),address varchar(255),salary double);
+
+insert into emp(eid, ename, lname, address, salary) values(101,'Sai','Kiran','Hyd', 2000);
+insert into emp(eid, ename, lname, address, salary) values(102,'Hari','Krishna','Hyd', 2200);
+insert into emp(eid, ename, lname, address, salary) values(103,'Vamshi','Reddy','Bng', 2400);
+insert into emp(eid, ename, lname, address, salary) values(104,'Sachin','Rao','Bng', 2600);
+insert into emp(eid, ename, lname, address, salary) values(105,'Sandeep','Naidu','Bng', 2800);
+insert into emp(eid, ename, lname, address, salary) values(106,'Sai','Kumar','Bng', 2800);
+insert into emp(eid, ename, lname, address, salary) values(107,'Sandeep','Reddy','Bng', 2800);
+insert into emp(eid, ename, lname, address, salary) values(108,'Sachin','Rao','Bng', 3000);
+insert into emp(eid, ename, lname, address, salary) values(109,'Sravan','Kumar','Chennai', 3200);
+insert into emp(eid, ename, lname, address, salary) values(110,'Murali','Krishna','Chennai', 3400);
+insert into emp(eid, ename, lname, address, salary) values(111,'Raj','Kumar','Hyd', 3600);
+insert into emp(eid, ename, lname, address, salary) values(112,'Sandeep','Kishan','Bng', 3800);
+insert into emp(eid, ename, lname, address, salary) values(113,'Pramod','Rao','Hyd', 4000);
+insert into emp(eid, ename, lname, address, salary) values(114,'Jeevan','Reddy','Bng', 4200);

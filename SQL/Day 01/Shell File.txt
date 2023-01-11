@@ -1,0 +1,181 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 58
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bat                |
+| cat                |
+| information_schema |
+| manytoone          |
+| monkey             |
+| mysql              |
+| onetomany          |
+| onetoone           |
+| performance_schema |
+| sakila             |
+| sep2021mysql       |
+| sys                |
+| world              |
++--------------------+
+13 rows in set (0.00 sec)
+
+mysql> create `sep2021mysql`
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`sep2021mysql`' at line 1
+mysql> create `sep2021mysql`;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`sep2021mysql`' at line 1
+mysql> create schema `sep2021mysql`;
+ERROR 1007 (HY000): Can't create database 'sep2021mysql'; database exists
+mysql> create schema `sep2021mysql`;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> connect sep2021mysql;
+Connection id:    59
+Current database: sep2021mysql
+
+mysql> create table emp(eid number, ename varchar(40), lname varchar(40), address varchar(150), salary double);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'number, ename varchar(40), lname varchar(40), address varchar(150), salary doubl' at line 1
+mysql> create table emp(eid int, ename varchar(40), lname varchar(40), address varchar(150), salary double);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (101, 'Sai', 'Kiran', 'Bng', 2200)
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> update emp set ename = 'Vamshi' where eid = 101;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> delete from emp where eid = 101
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (101, 'Sai', 'Kiran', 'Bng', 2200);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (102, 'Vamshi', 'Reddy', 'Bng', 2400);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (103, 'Sachin', 'Rao', 'Bng', 2600);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (104, 'Sai', 'Reddy', 'Bng', 2800);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (105, 'Manoj', 'Kumar', 'Hyd', 3000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (106, 'Prateek', 'Verma', 'Bng', 3200);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (107, 'Hari', 'Krishna', 'Bng', 3400);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (108, 'Manohar', 'Nayak', 'Bng', 3600);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (109, 'Bargav', 'Prad', 'Bng', 3800);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp(eid, ename, lname, address, salary) values (110, 'Sai', 'Kiran', 'Bng', 4000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++------+---------+---------+---------+--------+
+| eid  | ename   | lname   | address | salary |
++------+---------+---------+---------+--------+
+|  101 | Sai     | Kiran   | Bng     |   2200 |
+|  102 | Vamshi  | Reddy   | Bng     |   2400 |
+|  103 | Sachin  | Rao     | Bng     |   2600 |
+|  104 | Sai     | Reddy   | Bng     |   2800 |
+|  105 | Manoj   | Kumar   | Hyd     |   3000 |
+|  106 | Prateek | Verma   | Bng     |   3200 |
+|  107 | Hari    | Krishna | Bng     |   3400 |
+|  108 | Manohar | Nayak   | Bng     |   3600 |
+|  109 | Bargav  | Prad    | Bng     |   3800 |
+|  110 | Sai     | Kiran   | Bng     |   4000 |
++------+---------+---------+---------+--------+
+10 rows in set (0.00 sec)
+
+mysql> select * from emp where address = 'Hyd';
++------+-------+-------+---------+--------+
+| eid  | ename | lname | address | salary |
++------+-------+-------+---------+--------+
+|  105 | Manoj | Kumar | Hyd     |   3000 |
++------+-------+-------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where ename = 'Sai';
++------+-------+-------+---------+--------+
+| eid  | ename | lname | address | salary |
++------+-------+-------+---------+--------+
+|  101 | Sai   | Kiran | Bng     |   2200 |
+|  104 | Sai   | Reddy | Bng     |   2800 |
+|  110 | Sai   | Kiran | Bng     |   4000 |
++------+-------+-------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where salary >3000;
++------+---------+---------+---------+--------+
+| eid  | ename   | lname   | address | salary |
++------+---------+---------+---------+--------+
+|  106 | Prateek | Verma   | Bng     |   3200 |
+|  107 | Hari    | Krishna | Bng     |   3400 |
+|  108 | Manohar | Nayak   | Bng     |   3600 |
+|  109 | Bargav  | Prad    | Bng     |   3800 |
+|  110 | Sai     | Kiran   | Bng     |   4000 |
++------+---------+---------+---------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp where address IN ('Hyd', 'Bng')
+    -> ;
++------+---------+---------+---------+--------+
+| eid  | ename   | lname   | address | salary |
++------+---------+---------+---------+--------+
+|  101 | Sai     | Kiran   | Bng     |   2200 |
+|  102 | Vamshi  | Reddy   | Bng     |   2400 |
+|  103 | Sachin  | Rao     | Bng     |   2600 |
+|  104 | Sai     | Reddy   | Bng     |   2800 |
+|  105 | Manoj   | Kumar   | Hyd     |   3000 |
+|  106 | Prateek | Verma   | Bng     |   3200 |
+|  107 | Hari    | Krishna | Bng     |   3400 |
+|  108 | Manohar | Nayak   | Bng     |   3600 |
+|  109 | Bargav  | Prad    | Bng     |   3800 |
+|  110 | Sai     | Kiran   | Bng     |   4000 |
++------+---------+---------+---------+--------+
+10 rows in set (0.00 sec)
+
+mysql> select * from emp where address LIKE 'H%';
++------+-------+-------+---------+--------+
+| eid  | ename | lname | address | salary |
++------+-------+-------+---------+--------+
+|  105 | Manoj | Kumar | Hyd     |   3000 |
++------+-------+-------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where eid between 103 and 108;
++------+---------+---------+---------+--------+
+| eid  | ename   | lname   | address | salary |
++------+---------+---------+---------+--------+
+|  103 | Sachin  | Rao     | Bng     |   2600 |
+|  104 | Sai     | Reddy   | Bng     |   2800 |
+|  105 | Manoj   | Kumar   | Hyd     |   3000 |
+|  106 | Prateek | Verma   | Bng     |   3200 |
+|  107 | Hari    | Krishna | Bng     |   3400 |
+|  108 | Manohar | Nayak   | Bng     |   3600 |
++------+---------+---------+---------+--------+
+6 rows in set (0.00 sec)
+
+mysql>
