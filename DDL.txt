@@ -1,0 +1,457 @@
+Data Definition Language(DDL) is a subset of SQL and a part of DBMS(Database Management System). DDL consist of Commands to commands like CREATE, ALTER, TRUNCATE and DROP. These commands are used to create or modify the tables in SQL.
+
+DDL Commands :
+In this section, We will cover the following DDL commands as follows.
+
+1.Create
+2.Alter 
+3.truncate
+4.drop
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Command-1 :
+CREATE :
+This command is used to create a new table in SQL. The user has to give information like table name, column names, and their datatypes.
+
+Syntax –
+
+CREATE TABLE table_name
+(
+column_1 datatype,
+column_2 datatype,
+column_3 datatype,
+....
+);
+
+Example: create table employee(empid int, empname varchar(30), salary int, domain varchar(30), location varchar(20), mobile int);
+----------------------------------------------------------------------------------------------------------------
+Command-2 :
+ALTER :
+This command is used to add, delete or change columns in the existing table. The user needs to know the existing table name and can do add, delete or modify tasks easily.
+
+Syntax –
+Syntax to add a column to an existing table.
+
+ALTER TABLE table_name
+ADD column_name datatype;
+
+ desc employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| empid    | int         | YES  |     | NULL    |       |
+| empname  | varchar(30) | YES  |     | NULL    |       |
+| salary   | int         | YES  |     | NULL    |       |
+| domain   | varchar(30) | YES  |     | NULL    |       |
+| location | varchar(20) | YES  |     | NULL    |       |
+| mobile   | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+Example:
+ alter table employee add email varchar(20);
+Query OK, 0 rows affected (0.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| empid    | int         | YES  |     | NULL    |       |
+| empname  | varchar(30) | YES  |     | NULL    |       |
+| salary   | int         | YES  |     | NULL    |       |
+| domain   | varchar(30) | YES  |     | NULL    |       |
+| location | varchar(20) | YES  |     | NULL    |       |
+| mobile   | int         | YES  |     | NULL    |       |
+| email    | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+------------------------------------------------------------------------------------------------------
+TRUNCATE :
+This command is used to remove all rows from the table, but the structure of the table still exists.
+
+Syntax –
+Syntax to remove an existing table.
+
+TRUNCATE TABLE table_name;
+Example –
+The College Authority wants to remove the details of all students for new batches but wants to keep the table structure. The command they can use is as follows.
+
+TRUNCATE TABLE Student_info;
+--------------------------------------------------------------------------------------------------------
+Command-4 :
+DROP :
+This command is used to remove an existing table along with its structure from the Database.
+
+Syntax –
+Syntax to drop an existing table.
+
+DROP TABLE table_name;
+-----------------------------------------------------------------------------------------------------------------
+DML(Data manupulation Language):
+1.Inset:
+The INSERT INTO statement of SQL is used to insert a new row in a table. There are two ways of using INSERT INTO statement for inserting rows:
+
+INSERT INTO table_name VALUES (value1, value2, value3,…);
+table_name: name of the table.
+value1, value2,.. : value of first column, second column,… for the new record
+
+Example:
+ insert into employee (empid, empname, salary, domain, location, mobile, email) values (1, 'joesph',
+    -> 10000, 'fullstackdevloper', 'bang',1236540, 'joesph@gmail.com');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from employee;
++-------+---------+--------+-------------------+----------+---------+------------------+
+| empid | empname | salary | domain            | location | mobile  | email            |
++-------+---------+--------+-------------------+----------+---------+------------------+
+|     1 | joesph  |  10000 | fullstackdevloper | bang     | 1236540 | joesph@gmail.com |
++-------+---------+--------+-------------------+----------+---------+------------------+
+
+
+
+mysql> insert into employee (empid, empname, salary, domain, location, mobile, email) values (1, 'joesph',
+    -> 10000, 'fullstackdevloper', 'bang',1236540, 'joesph@gmail.com');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into employee values(2, 'bobmartin', 20000, 'javafullstackdevloper', 'hyderabad',012302, 'bob@gmail.com');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into employee values(3, 'Robetstephen', 30000, 'pythonfullstackdevloper', 'chennai',0126363, 'robert@gmail.com');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into employee values(4, 'michealclark', 40000, 'mysqlfullstackdevloper', 'pune',01852623, 'micheal@gmail.com');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from employee;
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+| empid | empname      | salary | domain                  | location  | mobile  | email             |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+|     1 | joesph       |  10000 | fullstackdevloper       | bang      | 1236540 | joesph@gmail.com  |
+|     2 | bobmartin    |  20000 | javafullstackdevloper   | hyderabad |   12302 | bob@gmail.com     |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | chennai   |  126363 | robert@gmail.com  |
+|     4 | michealclark |  40000 | mysqlfullstackdevloper  | pune      | 1852623 | micheal@gmail.com |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+---------------------------------------------------------------------------------------------------------------------------------------
+SELECT:SELECT
+Select command is used to retrieve data from the database.
+
+The syntax for the select command is as follows −
+
+Syntax
+
+SELECT * from <table_name>;
+--------------------------------------------------------------------------------------------------------------
+UPDATE:
+UPDATE
+Update command is used to update existing data within a table.
+
+The syntax for the update command is as follows -
+
+Syntax
+
+UPDATE <table_name> SET column_number =value_number WHERE condition;
+
+ select * from employee;
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+| empid | empname      | salary | domain                  | location  | mobile  | email             |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+|     1 | joesph       |  10000 | fullstackdevloper       | bang      | 1236540 | joesph@gmail.com  |
+|     2 | bobmartin    |  22000 | javafullstackdevloper   | hyderabad |   12302 | bob@gmail.com     |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | chennai   |  126363 | robert@gmail.com  |
+|     4 | michealclark |  40000 | mysqlfullstackdevloper  | pune      | 1852623 | micheal@gmail.com |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+4 rows in set (0.00 sec)
+Example:
+mysql> update employee set empname='triveni' where location='pune';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+| empid | empname      | salary | domain                  | location  | mobile  | email             |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+|     1 | joesph       |  10000 | fullstackdevloper       | bang      | 1236540 | joesph@gmail.com  |
+|     2 | bobmartin    |  22000 | javafullstackdevloper   | hyderabad |   12302 | bob@gmail.com     |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | chennai   |  126363 | robert@gmail.com  |
+|     4 | triveni      |  40000 | mysqlfullstackdevloper  | pune      | 1852623 | micheal@gmail.com |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+----------------------------------------------------------------------------------------------------------------
+DELETE:
+Delete command is used to delete records from a database table.
+
+The syntax for the delete command is as follows -
+
+Syntax
+
+ Delete from <table_name>WHERE condition;
+
+ delete from employee where salary=10000;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from employee;
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+| empid | empname      | salary | domain                  | location  | mobile  | email             |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+|     2 | bobmartin    |  22000 | javafullstackdevloper   | hyderabad |   12302 | bob@gmail.com     |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | chennai   |  126363 | robert@gmail.com  |
+|     4 | triveni      |  40000 | mysqlfullstackdevloper  | pune      | 1852623 | micheal@gmail.com |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+---------------------------------------------------------------------------------------------------------------------------
+DCL (Data Control Language): 
+DCL includes commands such as GRANT and REVOKE which mainly deal with the rights, permissions, and other controls of the database system. 
+
+List of  DCL commands: 
+
+GRANT: This command gives users access privileges to the database.
+REVOKE: This command withdraws the user’s access privileges given by using the GRANT command.
+
+GRANT:
+
+C:\Users\DELL>mysql -u man -p
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 25
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dog                |
+| information_schema |
+| performance_schema |
++--------------------+
+3 rows in set (0.03 sec)
+
+mysql> use dog;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_dog |
++---------------+
+| employee      |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee;
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+| empid | empname      | salary | domain                  | location  | mobile  | email             |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+|     2 | bobmartin    |  22000 | javafullstackdevloper   | hyderabad |   12302 | bob@gmail.com     |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | chennai   |  126363 | robert@gmail.com  |
+|     4 | triveni      |  40000 | mysqlfullstackdevloper  | pune      | 1852623 | micheal@gmail.com |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into employee values(5, 'alex', 32000, 'dotnet', 'kadapa', 230210, 'alex@gmail.com');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> update employee set location='manglore' where salary=30000;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+| empid | empname      | salary | domain                  | location  | mobile  | email             |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+|     2 | bobmartin    |  22000 | javafullstackdevloper   | hyderabad |   12302 | bob@gmail.com     |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | manglore  |  126363 | robert@gmail.com  |
+|     4 | triveni      |  40000 | mysqlfullstackdevloper  | pune      | 1852623 | micheal@gmail.com |
+|     5 | alex         |  32000 | dotnet                  | kadapa    |  230210 | alex@gmail.com    |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> delete from employee where empid=5;
+ERROR 1142 (42000): DELETE command denied to user 'man'@'localhost' for table 'employee'
+-----------------------------------------------------------------------------------------------------
+USING DELETE :
+>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 26
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use dog;
+Database changed
+mysql> grant delete on employee to man;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> quit
+Bye
+
+C:\Users\DELL>mysql -u man -p
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 27
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use dog;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_dog |
++---------------+
+| employee      |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee;
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+| empid | empname      | salary | domain                  | location  | mobile  | email             |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+|     2 | bobmartin    |  22000 | javafullstackdevloper   | hyderabad |   12302 | bob@gmail.com     |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | manglore  |  126363 | robert@gmail.com  |
+|     4 | triveni      |  40000 | mysqlfullstackdevloper  | pune      | 1852623 | micheal@gmail.com |
+|     5 | alex         |  32000 | dotnet                  | kadapa    |  230210 | alex@gmail.com    |
++-------+--------------+--------+-------------------------+-----------+---------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> delete from employee where empid=4;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from employee;
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+| empid | empname      | salary | domain                  | location  | mobile | email            |
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+|     2 | bobmartin    |  22000 | javafullstackdevloper   | hyderabad |  12302 | bob@gmail.com    |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | manglore  | 126363 | robert@gmail.com |
+|     5 | alex         |  32000 | dotnet                  | kadapa    | 230210 | alex@gmail.com   |
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+3 rows in set (0.00 sec)
+-----------------------------------------------------------------------------------------------------------------------
+REVOKE:. Revoke : 
+Revoke command withdraw user privileges on database objects if any granted. It does operations opposite to the Grant command. When a privilege is revoked from a particular user U, then the privileges granted to all other users by user U will be revoked. 
+
+Syntax: 
+
+revoke privilege_name on object_name
+from {user_name | public | role_name}
+
+C:\Users\DELL>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 28
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use dog;
+Database changed
+mysql> select * from employee;
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+| empid | empname      | salary | domain                  | location  | mobile | email            |
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+|     2 | bobmartin    |  22000 | javafullstackdevloper   | hyderabad |  12302 | bob@gmail.com    |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | manglore  | 126363 | robert@gmail.com |
+|     5 | alex         |  32000 | dotnet                  | kadapa    | 230210 | alex@gmail.com   |
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> revoke delete, insert on employee to man;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to man' at line 1
+mysql> revoke delete, insert on employee from man;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> quit
+Bye
+
+C:\Users\DELL>mysql -u man -p
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 29
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use dog;
+Database changed
+mysql> select * from employee;
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+| empid | empname      | salary | domain                  | location  | mobile | email            |
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+|     2 | bobmartin    |  22000 | javafullstackdevloper   | hyderabad |  12302 | bob@gmail.com    |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | manglore  | 126363 | robert@gmail.com |
+|     5 | alex         |  32000 | dotnet                  | kadapa    | 230210 | alex@gmail.com   |
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> delete from employee where empid=2;
+ERROR 1142 (42000): DELETE command denied to user 'man'@'localhost' for table 'employee'
+mysql> update employee set salary=500000 where empid=2;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+| empid | empname      | salary | domain                  | location  | mobile | email            |
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+|     2 | bobmartin    | 500000 | javafullstackdevloper   | hyderabad |  12302 | bob@gmail.com    |
+|     3 | Robetstephen |  30000 | pythonfullstackdevloper | manglore  | 126363 | robert@gmail.com |
+|     5 | alex         |  32000 | dotnet                  | kadapa    | 230210 | alex@gmail.com   |
++-------+--------------+--------+-------------------------+-----------+--------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into employee values(6, 'Arjun', 80000,  'Backenddeveloper', 'mumbai', 2365410, 'arjun@gmail.com');
+ERROR 1142 (42000): INSERT command denied to user 'man'@'localhost' for table 'employee'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
